@@ -1,6 +1,6 @@
 {
   "name": "@fogtype/css",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A classless CSS framework",
   "keywords": [
     "css"
@@ -11,5 +11,8 @@
     "type": "git",
     "url": "https://git.fogtype.com/nebel/css.git"
   },
-  "main": "index.css"
+  "main": "index.css",
+  "publishConfig": {
+    "access": "public"
+  }
 }
