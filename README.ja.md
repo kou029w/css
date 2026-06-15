@@ -12,7 +12,7 @@
 - **クラスレス** - 素のHTMLがそのまま整う。スタイルは `:root` のCSS変数を上書きするだけで差し替え可能（1ファイル・依存関係ゼロ）
 - **CJK対応** - `text-autospace` でCJK・欧文間スペースを、`text-spacing-trim` で約物の余白を自動調整
 
-実際の表示は [`preview.ja.html`](./preview.ja.html) をブラウザで開くと確認できます。
+実際の表示は[プレビュー](https://kou029w.github.io/css/preview.ja.html)で確認できます。
 
 ## Usage
 

@@ -12,7 +12,7 @@ Semantic HTML (`<h1>` / `<p>` / `<table>` / `<form>` …) turns into a polished 
 - **Classless** - Plain HTML is styled as-is. Themes can be swapped simply by overriding the CSS variables on `:root` (single file, zero dependencies)
 - **CJK support** - `text-autospace` adjusts spacing between CJK and Latin characters, and `text-spacing-trim` handles the spacing around punctuation automatically
 
-To see it in action, open [`preview.html`](./preview.html) in your browser.
+To see it in action, view the [preview](https://kou029w.github.io/css/preview.html).
 
 ## Usage
 
