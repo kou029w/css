@@ -1,0 +1,15 @@
+{
+  "name": "@fogtype/css",
+  "version": "1.0.0",
+  "description": "A classless CSS framework",
+  "keywords": [
+    "css"
+  ],
+  "license": "MIT",
+  "author": "Kohei Watanabe <nebel@fogtype.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://git.fogtype.com/nebel/css.git"
+  },
+  "main": "index.css"
+}

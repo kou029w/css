@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>@fogtype/css</title>
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    .palette {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+      gap: var(--space-block-small);
+      padding: 0;
+      margin-block: var(--space-block-default);
+    }
+    .palette li {
+      margin: 0;
+    }
+    .swatch {
+      display: block;
+      block-size: 4rlh;
+      border: 1px solid var(--color-border);
+    }
+    .palette code {
+      background: none;
+      padding: 0;
+      color: var(--color-text-secondary);
+    }
+    .palette b {
+      display: block;
+    }
+    .palette small {
+      display: block;
+    }
+    .alert {
+      margin-block: var(--space-block-small);
+      padding-block: var(--space-block-small);
+      padding-inline: var(--space-inline-default);
+      border-inline-start: 4px solid var(--color-text-secondary);
+    }
+    .alert.is-danger {
+      border-color: var(--color-danger);
+    }
+    .alert.is-warning {
+      border-color: var(--color-warning);
+    }
+    .alert.is-success {
+      border-color: var(--color-success);
+    }
+    .alert b.is-danger {
+      color: var(--color-danger);
+    }
+    .alert b.is-warning {
+      color: var(--color-warning);
+    }
+    .alert b.is-success {
+      color: var(--color-success);
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-inline-default);
+      align-items: center;
+    }
+  </style>
+
+  <header>
+    <h1>@fogtype/css</h1>
+    <p>
+      タイポグラフィと余白だけで構造を伝える、ミニマルなクラスレスCSSフレームワーク。
+    </p>
+  </header>
+
+  <hr />
+
+  <h2>Color Palette</h2>
+  <ul class="palette">
+    <li>
+      <span class="swatch" style="background: var(--color-primary)"></span>
+      <b>Primary</b><code>--color-primary</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-primary-dark)"></span>
+      <b>Primary Dark</b><code>--color-primary-dark</code>
+    </li>
+    <li>
+      <span
+        class="swatch"
+        style="background: var(--color-primary-light)"
+      ></span>
+      <b>Primary Light</b><code>--color-primary-light</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-danger)"></span>
+      <b>Danger</b><code>--color-danger</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-warning)"></span>
+      <b>Warning</b><code>--color-warning</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-success)"></span>
+      <b>Success</b><code>--color-success</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-text)"></span>
+      <b>Text</b><code>--color-text</code>
+    </li>
+    <li>
+      <span
+        class="swatch"
+        style="background: var(--color-text-secondary)"
+      ></span>
+      <b>Text Secondary</b><code>--color-text-secondary</code>
+    </li>
+    <li>
+      <span
+        class="swatch"
+        style="background: var(--color-text-disabled)"
+      ></span>
+      <b>Text Disabled</b><code>--color-text-disabled</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-border)"></span>
+      <b>Border</b><code>--color-border</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-surface)"></span>
+      <b>Surface</b><code>--color-surface</code>
+    </li>
+    <li>
+      <span class="swatch" style="background: var(--color-background)"></span>
+      <b>Background</b><code>--color-background</code>
+    </li>
+  </ul>
+
+  <h2>Typography</h2>
+
+  <h1>Heading 1 - 32px</h1>
+  <h2>Heading 2 - 24px</h2>
+  <h3>Heading 3 / Body - 20px</h3>
+
+  <p>
+    本文は20px・行間1.6を基準とします。日本語とEnglishの混植では
+    <code>text-autospace: normal</code>
+    によって和欧間に1/4emのスペースが自動挿入されます。たとえば「Claude Opus
+    4.8を2026年に使う」のような文でも、約物アキは
+    <code>text-spacing-trim</code>
+    で調整されます。
+  </p>
+
+  <p>
+    強調には
+    <em>太字（bold）</em>を、より強い意味には<strong>strong</strong>を使います。
+    リンクは<a href="#">この通り</a>下線色で表現します。
+    キーは<kbd>Ctrl</kbd>+<kbd>K</kbd>、
+    注釈は<small>このようにsmallで</small>添えます。
+    ハイライトは<mark>markで表現します</mark>。
+  </p>
+
+  <h2>Lists</h2>
+
+  <h3>順序なしリスト</h3>
+  <ul>
+    <li>静謐・クリーン・可読性最優先</li>
+    <li>
+      フラット設計
+      <ul>
+        <li>ネストした項目もリズムを維持</li>
+        <li>インデントは <code>--space-inline-large</code>（40px）</li>
+      </ul>
+    </li>
+    <li>活字メディア・読み物向けレイアウト</li>
+  </ul>
+
+  <h3>順序付きリスト</h3>
+  <ol>
+    <li>ルートfont-sizeを最低20pxに固定</li>
+    <li>余白をrlh（32px）のリズムに揃える</li>
+  </ol>
+
+  <h3>定義リスト</h3>
+  <dl>
+    <dt>rlh</dt>
+    <dd>root line-height = 1.6 × 20px = 32px。block方向の全余白の基準単位。</dd>
+    <dt>ic</dt>
+    <dd>全角1文字の送り幅</dd>
+  </dl>
+
+  <h2>Code</h2>
+  <p>
+    インラインコードは
+    <code>--space-block-small</code>
+    のような形で本文に溶け込みます。ブロックは横スクロールします:
+  </p>
+
+  <pre><code>:root {
+  --color-primary: oklch(54% 0.247 293);      /* ブランドカラー差し替え */
+  --color-primary-dark: oklch(40% 0.247 293); /* ホバー時 */
+  --radius: 0;                                /* 角張らせる */
+  --line-length: 50;                          /* 本文幅を 50ric に広げる */
+}</code></pre>
+
+  <h2>Table</h2>
+  <p>
+    テーブルはフラット、影・角丸なし。セル背景は
+    <code>--color-surface</code>、行区切りは
+    <code>1px solid var(--color-border)</code>。
+  </p>
+
+  <table>
+    <caption>
+      Type Scale
+    </caption>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Token</th>
+        <th>Size</th>
+        <th>Line Height</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Heading 1</td>
+        <td><code>--text-huge</code></td>
+        <td>32px</td>
+        <td>1.2</td>
+      </tr>
+      <tr>
+        <td>Heading 2</td>
+        <td><code>--text-large</code></td>
+        <td>24px</td>
+        <td>1.2</td>
+      </tr>
+      <tr>
+        <td>Heading 3 / Body</td>
+        <td><code>--text-default</code></td>
+        <td>20px</td>
+        <td>1.6</td>
+      </tr>
+      <tr>
+        <td>Caption / Small</td>
+        <td><code>--text-small</code></td>
+        <td>15px</td>
+        <td>1.6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Semantic Colors</h2>
+
+  <div class="alert is-danger">
+    <b class="is-danger">エラー</b>:
+    入力された値が正しくありません。<code>--color-danger</code>を使用します。
+  </div>
+  <div class="alert is-warning">
+    <b class="is-warning">警告</b>:
+    この操作は取り消せません。<code>--color-warning</code>を使用します。
+  </div>
+  <div class="alert is-success">
+    <b class="is-success">完了</b>:
+    変更を保存しました。<code>--color-success</code>を使用します。
+  </div>
+
+  <h2>Buttons</h2>
+  <p>
+    角は控えめな角丸（<code>border-radius: var(--radius)</code>）。
+    高さはタッチターゲットの最小サイズ基準に適合。
+  </p>
+  <p class="btn-row">
+    <button type="submit">Primary</button>
+    <button type="reset">Secondary</button>
+    <button type="button" disabled>Disabled</button>
+  </p>
+
+  <h2>Forms</h2>
+  <form onsubmit="return false;">
+    <p>
+      <label for="name">お名前</label>
+      <input id="name" type="text" placeholder="山田 太朗" />
+    </p>
+    <p>
+      <label for="email">メールアドレス</label>
+      <input id="email" type="email" placeholder="name@example.com" />
+    </p>
+    <p>
+      <label for="theme">テーマ</label>
+      <select id="theme">
+        <option>ライト</option>
+        <option>ダーク</option>
+        <option>自動</option>
+      </select>
+    </p>
+    <p>
+      <label for="message">メッセージ</label>
+      <textarea id="message" placeholder="ご自由にお書きください"></textarea>
+    </p>
+
+    <fieldset>
+      <legend>表示設定</legend>
+      <p>
+        <label><input type="checkbox" checked /> ルビを表示</label>
+      </p>
+      <p>
+        <label><input type="radio" name="lh" checked /> ゆったり</label>
+        <label><input type="radio" name="lh" /> まったり</label>
+      </p>
+    </fieldset>
+
+    <p class="btn-row">
+      <button type="submit">送信する</button>
+      <button type="reset">リセット</button>
+    </p>
+  </form>
+
+  <hr />
+
+  <footer>
+    <small>@fogtype/css - A classless CSS framework. MIT License.</small>
+  </footer>
+</html>
