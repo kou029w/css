@@ -49,47 +49,53 @@ body {
 h1,
 h2,
 h3,
+p,
+hr,
+pre,
+blockquote,
+ul,
+ol,
+dl,
+figure,
+table,
+fieldset {
+  margin-block: var(--space-block-default);
+}
+h1,
+h2,
+h3,
 h4,
 h5,
 h6 {
   font-weight: normal;
 }
-h1 {
-  margin-block: var(--space-block-default);
-  font-size: var(--text-huge);
+h1,
+h2 {
   line-height: var(--leading-small);
+}
+h1 {
+  font-size: var(--text-huge);
 }
 h2 {
-  margin-block: var(--space-block-default);
   font-size: var(--text-large);
-  line-height: var(--leading-small);
 }
 h3 {
-  margin-block: var(--space-block-default) var(--space-block-tiny);
+  margin-block-end: var(--space-block-tiny);
   font-size: var(--text-default);
 }
-p {
-  margin-block: var(--space-block-default);
-}
 hr {
-  margin-block: var(--space-block-default);
   border: none;
   border-block-start: 1px solid var(--color-border);
 }
 pre {
   padding-block: var(--space-block-small);
   padding-inline: var(--space-inline-default);
-  margin-block: var(--space-block-default);
   overflow-x: auto;
   overflow-inline: auto;
   background: var(--color-surface);
 }
-pre code {
-  padding: 0;
-}
 blockquote {
   padding-inline-start: var(--space-inline-default);
-  margin-block: var(--space-block-default);
   margin-inline: 0;
   color: var(--color-text-secondary);
   border-inline-start: 2px solid var(--color-border);
@@ -97,17 +103,11 @@ blockquote {
 ul,
 ol {
   padding-inline-start: var(--space-inline-large);
-  margin-block: var(--space-block-default);
 }
-li {
-  margin-block: var(--space-block-tiny);
-}
+li,
 li > ul,
 li > ol {
   margin-block: var(--space-block-tiny);
-}
-dl {
-  margin-block: var(--space-block-default);
 }
 dt {
   font-weight: bold;
@@ -116,7 +116,6 @@ dd {
   margin-inline-start: var(--space-inline-large);
 }
 figure {
-  margin-block: var(--space-block-default);
   margin-inline: 0;
 }
 figcaption {
@@ -128,9 +127,10 @@ a {
   color: var(--color-primary);
   text-decoration-color: color-mix(in oklch, currentcolor, white);
   text-underline-offset: 0.15em;
-}
-a:hover {
-  color: var(--color-primary-dark);
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
 }
 em {
   font-style: normal;
@@ -156,7 +156,6 @@ img {
 }
 table {
   inline-size: 100%;
-  margin-block: var(--space-block-default);
   border-collapse: collapse;
 }
 th,
@@ -166,10 +165,10 @@ td {
   vertical-align: top;
   text-align: start;
   background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  border-block-end: 1px solid var(--color-border);
 }
 thead th {
-  border-bottom: 2px solid var(--color-border);
+  border-block-end: 2px solid var(--color-border);
 }
 caption {
   margin-block-end: var(--space-block-tiny);
@@ -200,71 +199,61 @@ textarea {
   resize: vertical;
   resize: block;
 }
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: -2px;
-  border-color: var(--color-primary);
-}
-input::placeholder,
-textarea::placeholder {
+:disabled {
   color: var(--color-text-disabled);
-}
-input:disabled,
-textarea:disabled,
-select:disabled {
-  color: var(--color-text-disabled);
+  cursor: not-allowed;
   background: var(--color-background);
 }
+:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+::placeholder {
+  color: var(--color-text-disabled);
+}
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+input[type="range"] {
   inline-size: auto;
   min-block-size: 0;
   accent-color: var(--color-primary);
 }
 button,
-[type="button"],
-[type="submit"] {
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
   min-block-size: var(--space-block-default);
   padding-block: var(--space-block-small);
   padding-inline: var(--space-inline-default);
   font: inherit;
   font-weight: bold;
+  color: var(--color-primary);
   cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
+
+  &:not(:disabled):hover {
+    background: var(--color-surface);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-dark);
+    outline-offset: 2px;
+  }
 }
-[type="submit"] {
+button[type="submit"],
+input[type="submit"] {
   color: white;
   background: var(--color-primary);
   border: none;
-}
-[type="submit"]:not(:disabled):hover {
-  background: var(--color-primary-dark);
-}
-button,
-[type="button"] {
-  color: var(--color-primary);
-  background: transparent;
-  border: 1px solid var(--color-border);
-}
-button:not(:disabled):hover,
-[type="button"]:not(:disabled):hover {
-  background: var(--color-surface);
-}
-button:focus-visible {
-  outline: 2px solid var(--color-primary-dark);
-  outline-offset: 2px;
-}
-button:disabled {
-  color: var(--color-background);
-  cursor: not-allowed;
-  background: var(--color-text-disabled);
+
+  &:not(:disabled):hover {
+    background: var(--color-primary-dark);
+  }
 }
 fieldset {
   padding-block: var(--space-block-small);
   padding-inline: var(--space-inline-default);
-  margin-block: var(--space-block-default);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
 }
