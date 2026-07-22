@@ -157,4 +157,4 @@ The block axis is based on `rlh` (root line-height = 1.6 × 20px = **32px**) and
 
 ## License
 
-MIT © 2026 [Kohei Watanabe](https://fogtype.com/@nebel)
+MIT © 2026 [Kohei Watanabe](https://kou029w.github.io/)
